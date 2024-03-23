@@ -12,7 +12,7 @@ public class LocalInfo {
      * @return local IPv4
      */
     public static String getIp() {
-
+        // https://www.baeldung.com/java-get-ip-address
         try (final DatagramSocket datagramSocket = new DatagramSocket()) {
             datagramSocket.connect(InetAddress.getByName("8.8.8.8"), 12345);
             return datagramSocket.getLocalAddress().getHostAddress();
