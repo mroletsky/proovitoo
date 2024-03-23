@@ -1,5 +1,3 @@
-Documentation file
-
 ### Weather to database (CronJob) ###
 
 
