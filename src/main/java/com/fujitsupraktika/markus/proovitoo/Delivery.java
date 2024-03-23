@@ -69,7 +69,8 @@ public class Delivery {
     }
     private double WPEF() { // Weather phenomenon extra fee
         if (vehicle.equalsIgnoreCase("scooter") || vehicle.equalsIgnoreCase("bike")) {
-            if (Pattern.compile(Pattern.quote("shower"), Pattern.CASE_INSENSITIVE).matcher(phenomenon).find()) {
+            if (Pattern.compile(Pattern.quote("shower"), Pattern.CASE_INSENSITIVE).matcher(phenomenon).find() ||
+                    Pattern.compile(Pattern.quote("rain"), Pattern.CASE_INSENSITIVE).matcher(phenomenon).find()) {
                 return 0.5;
             }
             if (Pattern.compile(Pattern.quote("snow"), Pattern.CASE_INSENSITIVE).matcher(phenomenon).find() ||
