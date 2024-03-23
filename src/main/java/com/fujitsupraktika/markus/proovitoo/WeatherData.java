@@ -44,7 +44,7 @@ public class WeatherData {
         try {
             // JDBC driver name and database URL
             String JDBC_DRIVER = "org.h2.Driver";
-            String DB_URL = "jdbc:h2:tcp://192.168.1.183:9092/~/weatherdata";
+            String DB_URL = "jdbc:h2:tcp://" + LocalInfo.getIp() + ":9092/~/weatherdata";
 
             //  Database credentials
             String USER = "sa";
@@ -89,10 +89,10 @@ public class WeatherData {
             conn.close();
         } catch (SQLException se) {
             // Handle errors for JDBC
-            se.printStackTrace();
+            throw new RuntimeException(se);
         } catch (Exception e) {
             // Handle errors for Class.forName
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 

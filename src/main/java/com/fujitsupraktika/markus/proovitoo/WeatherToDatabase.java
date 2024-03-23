@@ -34,7 +34,7 @@ public class WeatherToDatabase {
 
             // JDBC driver name and database URL
             String JDBC_DRIVER = "org.h2.Driver";
-            String DB_URL = "jdbc:h2:tcp://192.168.1.183:9092/~/weatherdata";
+            String DB_URL = "jdbc:h2:tcp://" + LocalInfo.getIp() + ":9092/~/weatherdata";
 
             //  Database credentials
             String USER = "sa";
@@ -92,13 +92,13 @@ public class WeatherToDatabase {
             conn.close();
         } catch (MalformedURLException e) {
             System.out.println("The URL is not formed correctly.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } catch (IOException e) {
             System.out.println("An error occurred while trying to open a connection to the URL.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } catch (Exception e) {
             System.out.println("An error occurred.");
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 }
