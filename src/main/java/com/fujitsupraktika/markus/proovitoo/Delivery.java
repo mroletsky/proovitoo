@@ -4,8 +4,11 @@ import java.util.regex.Pattern;
 
 public class Delivery {
 
-    private String city, vehicle, phenomenon;
-    private double windspeed, temperature;
+    private final String city;
+    private final String vehicle;
+    private final String phenomenon;
+    private final double windspeed;
+    private final double temperature;
 
     public Delivery(String city, String vehicle, String phenomenon, double windspeed, double temperature) {
         this.city = city;
