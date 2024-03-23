@@ -91,7 +91,6 @@ public class ApplicationController {
             */
 
         } catch (Exception e) {
-            e.printStackTrace();
             return new ResponseEntity<>("An error occurred while calculating the delivery fee", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
