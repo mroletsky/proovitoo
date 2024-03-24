@@ -1,3 +1,8 @@
+### LocalInfo ###
+Has static method `getIp()` that returns the local IPv4.
+Used for connecting to local H2 Database server.
+
+
 ### Weather to database (CronJob) ###
 Gets Weather Data from the Estonian Environment Agency and writes it into the database.
 Meant to be run as a CronJob with the shell script runWeatherToDatabase.sh.
@@ -40,3 +45,9 @@ Get the delivery fee for specified delivery situation
 ```json
 4.0
 ```
+
+### Status codes
+- `200 OK`: The request was successful
+- `400 Bad Request`: Usage of selected `vehicleType` is forbidden due to weather in selected `city`.
+- `404 Not Found`: Invalid `city` or `vehicleType`.
+- `500 Internal Server Error`: There was an error while calculating the delivery fee.

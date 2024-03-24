@@ -19,11 +19,15 @@ public class ApplicationController {
      *  Example request:
      *  GET /api/delivery/fee?city=Tallinn&vehicleType=Car
      *
-     *  @param city location of delivery.
-     *  @param vehicleType vehicle to deliver.
-     *  @throws org.springframework.web.client.HttpServerErrorException.InternalServerError
+     * @param city location of delivery.
+     * @param vehicleType vehicle to deliver.
+     * @throws org.springframework.web.client.HttpClientErrorException.NotFound
+     *          when city or vehicleType is invalid.
+     * @throws org.springframework.web.client.HttpClientErrorException.BadRequest
+     *          when vehicle selection is forbidden due to weather.
+     * @throws org.springframework.web.client.HttpServerErrorException.InternalServerError
      *          when an error occurs while calculating the delivery fee.
-     *  @return deliveryFee
+     * @return deliveryFee
      *
      */
     @GetMapping("/fee")
@@ -35,10 +39,10 @@ public class ApplicationController {
 
             // Validate the input parameters
             if (!Arrays.asList("tallinn", "tartu", "pärnu").contains(city)) {
-                return new ResponseEntity<>("Invalid city (Valid cities are: Tallinn, Tartu, Pärnu)", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Invalid city (Valid cities are: Tallinn, Tartu, Pärnu)", HttpStatus.NOT_FOUND);
             }
             if (!Arrays.asList("car", "scooter", "bike").contains(vehicleType)) {
-                return new ResponseEntity<>("Invalid vehicle type (Valid vehicle types are: Car, Scooter, Bike)", HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>("Invalid vehicle type (Valid vehicle types are: Car, Scooter, Bike)", HttpStatus.NOT_FOUND);
             }
 
             // Create WeatherData object
