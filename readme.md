@@ -11,6 +11,8 @@ The Script uses mvn exec:java to run the program.
 #### Crontab configuration:
 Add line `15 * * * * /path/to/shell/script/runWeatherToDatabase.sh` to crontab.
 This runs the script every 15th minute of every hour.
+Also configure the script `runWeatherToDatabase.sh` to correctly change directory to project
+`cd /path/to/project` (configure line 2 in script).
 
 
 ### Weather data ###
