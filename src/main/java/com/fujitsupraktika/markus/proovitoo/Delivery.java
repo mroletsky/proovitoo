@@ -96,7 +96,7 @@ public class Delivery {
      * In cases of a high windspeed or extreme weather phenomenon
      * some vehicles are forbidden to use:
      * (vehicle: bike, windspeed > 20 or extreme weather) or (vehicle: scooter, extreme weather)
-     * @return -1.0 when selection forbidden, otherwise sum of base fee and extra fees
+     * @return -1.0 when selection forbidden due to weather, otherwise sum of base fee and extra fees
      */
     public double calculateFee() {
         if (WPEF() < 0 || WSEF() < 0) { // Vehicle forbidden cases
