@@ -34,7 +34,19 @@ public class WeatherToDatabase {
 
             // JDBC driver name and database URL
             String JDBC_DRIVER = "org.h2.Driver";
-            String DB_URL = "jdbc:h2:tcp://" + LocalInfo.getIp() + ":9092/~/weatherdata";
+            String DB_URL = ""; // Declare DB_URL as and empty String
+            /*
+            Check if the program was run with the shell script runWeatherToDatabase.sh
+            If it was then get the database address from script input ip
+            If this is not the case, then guess that the program was run from the IDE and try to find the database on executing device
+            If that does not work either then the whole program stop and throw and exception
+             */
+            try {
+                String ip = args[0];
+                DB_URL = "jdbc:h2:tcp://" + ip + ":9092/~/weatherdata";
+            } catch (Exception e) {
+                DB_URL = "jdbc:h2:tcp://" + LocalInfo.getIp() + ":9092/~/weatherdata";
+            }
 
             //  Database credentials
             String USER = "sa";
