@@ -53,5 +53,5 @@ Get the delivery fee for specified delivery situation
 ### Status codes
 - `200 OK`: The request was successful
 - `400 Bad Request`: Usage of selected `vehicleType` is forbidden due to weather in selected `city`.
-- `404 Not Found`: Invalid `city` or `vehicleType`.
+- `404 Not Found`: Invalid request or invalid parameters `city` or `vehicleType`.
 - `500 Internal Server Error`: There was an error while calculating the delivery fee.
