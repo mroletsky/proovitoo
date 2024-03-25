@@ -9,7 +9,7 @@ Meant to be run as a CronJob with the shell script runWeatherToDatabase.sh.
 The Script uses mvn exec:java to run the program.
 
 #### Crontab configuration:
-First install maven `sudo apt install maven` and make sure the latest jdk is installed `sudo apt install openjdk-21-jdk`.
+First make sure that maven and the latest jdk are installed `sudo apt install maven`, `sudo apt install openjdk-21-jdk`.
 Add line `15 * * * * /path/to/shell/script/runWeatherToDatabase.sh` to crontab.
 This runs the script every 15th minute of every hour.
 Also configure the script `runWeatherToDatabase.sh` to correctly change directory to project `cd /path/to/project` 
