@@ -14,7 +14,7 @@ Add line `15 * * * * /path/to/shell/script/runWeatherToDatabase.sh` to crontab.
 This runs the script every 15th minute of every hour.
 Also configure the script `runWeatherToDatabase.sh` to correctly change directory to project `cd /path/to/project` 
 and also change the `IP` in the script to the ip of the device the database is stored on. (configure lines 2 and 3 in script). 
-Note: I run the cronjob on my windows linux subsystem.
+Note: I run the cronjob on my windows subsystem for linux.
 
 
 ### Weather data ###
