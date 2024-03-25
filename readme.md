@@ -8,9 +8,6 @@ Gets Weather Data from the Estonian Environment Agency and writes it into the da
 Meant to be run as a CronJob with the shell script runWeatherToDatabase.sh.
 The Script uses mvn exec:java to run the program.
 
-#### H2 Database Server:
-Make sure the database has -tcpAllowOthers enabled `java -cp C:\path\to\h2*.jar org.h2.tools.Server -tcp -tcpAllowOthers`
-
 #### Crontab configuration:
 First install maven `sudo apt install maven` and make sure the latest jdk is installed `sudo apt install openjdk-21-jdk`.
 Add line `15 * * * * /path/to/shell/script/runWeatherToDatabase.sh` to crontab.
